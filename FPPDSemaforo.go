@@ -14,7 +14,7 @@
 //      s.Wait()
 //      s.Signal()
 
-package FPPDSemaforo
+package main
 
 // ---------------------------------
 type Semaphore struct { // este semáforo implementa quaquer numero de creditos em "v"
