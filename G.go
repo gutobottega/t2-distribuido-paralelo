@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"./FPPDSemaforo"
+	"FPPDSemaforo/FPPDSemaforo"
 )
 
 var (
@@ -25,6 +25,8 @@ func main() {
 	for i := 0; i < 9; i++ {
 		go reindeerFunc(i)
 	}
+
+	time.Sleep(10 * time.Second) // Espera um tempo para que as goroutines terminem
 }
 
 func elf(id int) {
@@ -49,7 +51,6 @@ func elf(id int) {
 }
 
 func reindeerFunc(id int) {
-
 	mutex.Wait()
 	reindeer += 1
 	if reindeer == 9 {
@@ -61,9 +62,8 @@ func reindeerFunc(id int) {
 }
 
 func santaClaus() {
-
-	// Take a nap
-	fmt.Println("Santa is taking a nap")
+	// Tirar uma soneca
+	fmt.Println("Papai Noel está tirando uma soneca")
 	time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
 
 	for {
@@ -82,21 +82,21 @@ func santaClaus() {
 }
 
 func prepareSleigh() {
-	fmt.Println("Santa is preparing the sleigh")
+	fmt.Println("Papai Noel está preparando o trenó")
 	time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
 }
 
 func helpElves() {
-	fmt.Println("Santa is helping the elves")
+	fmt.Println("Papai Noel está ajudando os elfos")
 	time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
 }
 
 func getHitched(id int) {
-	fmt.Printf("Reindeer %d is getting hitched\n", id)
+	fmt.Printf("Rena %d está sendo engatada\n", id)
 	time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
 }
 
 func getHelp(id int) {
-	fmt.Printf("Elf %d is getting help\n", id)
+	fmt.Printf("Elfo %d está recebendo ajuda\n", id)
 	time.Sleep(time.Duration(rand.Intn(5)) * time.Second)
 }
